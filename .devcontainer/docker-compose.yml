@@ -28,7 +28,13 @@ services:
       POSTGRES_PASSWORD: admin
       POSTGRES_HOST: app_psql
       POSTGRES_DB: vpn_api
+      REDIS_HOST: app_redis
     command: /bin/sh -c "while sleep 1000; do :; done"
+    networks:
+      - microservices
+
+  app_redis:
+    image: redis:7.4.0-alpine
     networks:
       - microservices
 
