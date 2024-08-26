@@ -11,6 +11,7 @@ def settings():
 @pytest.fixture
 def custom_settings():
     os.environ.setdefault(key="POSTGRES_HOST", value="TESTING")
+    os.environ.update({"POSTGRES_HOST": "TESTING"})
     return get_settings(), Settings()
 
 

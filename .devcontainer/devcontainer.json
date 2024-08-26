@@ -6,7 +6,6 @@
 	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
 	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
 	"dockerComposeFile": [
-		"../docker-compose.yaml",
 		"docker-compose.yml"
 	],
 
@@ -18,12 +17,15 @@
 	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
-	"postStartCommand": "poetry install",
+	"postStartCommand": "python -m venv .venv && poetry install",
 	"customizations": {
 		"vscode": {
 			"extensions": [
 				"ms-python.python",
-				"ms-python.debugpy"
+				"ms-python.debugpy",
+				"ms-azuretools.vscode-docker",
+				"ms-python.black-formatter",
+				"ms-python.pylint"
 			]
 		}
 	}
